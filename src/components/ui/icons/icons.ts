@@ -1,0 +1,1 @@
+export {BiSearch as SearchIcon} from 'react-icons/bi'

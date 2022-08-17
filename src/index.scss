@@ -7,3 +7,16 @@ body {
     font-size: 15px;
     color: gray;
 }
+.App {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    
+}
+.App_content {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
