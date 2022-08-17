@@ -1,0 +1,21 @@
+.page_wrapper {
+    display: flex;
+    justify-content: end;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: linear-gradient(45deg, rgb(255, 104, 117), rgb(255, 139, 104));
+
+    & .content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60%;
+        background-color: white;
+
+        @media (max-width: 900px) {
+        width: 100%;
+        }
+    }
+}

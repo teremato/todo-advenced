@@ -1,0 +1,58 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    width: 50%;
+    height: 50%;
+
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0px 0px 21px 0px rgba(34, 60, 80, 0.2);
+
+    & .title {
+        font: {
+            size: 25px ;
+            weight: 500
+        }
+        color: black;
+    }
+    & .input_form {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        & input {
+            border: none;
+            border-bottom: 1px solid gray;
+            font-size: 18px;
+            padding: 6px;
+            outline: none;
+        }
+    }
+
+    & .btn_auth {
+        cursor: pointer;
+        padding: 10px;
+        border: none {
+            radius: 10px
+        }
+        background: linear-gradient(45deg, rgb(255, 104, 117), rgb(255, 139, 104));
+        color: white;
+    }
+    & .change_form {
+        & button {
+            cursor: pointer;
+            font-size: 15px;
+            border: none;
+            background: none;
+            color: rgb(255, 104, 117);
+        }
+    }
+
+    @media (max-width: 900px) {
+        font-size: 23px;
+        width: 70%;
+        height: 40%;
+    }
+}

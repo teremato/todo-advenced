@@ -1,0 +1,1 @@
+export {AuthProvider} from './authrization/auth-provider'
