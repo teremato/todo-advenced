@@ -1,1 +1,1 @@
-export {AuthProvider} from './authrization/auth-provider'
+export {AuthProvider} from './auth-provider/auth-provider'
