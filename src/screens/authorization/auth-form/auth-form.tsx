@@ -19,16 +19,18 @@ export const AuthForm : FC<AuthFormProp> = ({title, subTitle, changeForm, handle
         <div className={styles.form}>
             <div className={styles.title}>{title}</div>
             <div className={styles.input_form}>
-                <label>Введите логин</label>
-                <input type="email" />
+                <label>Введите почту</label>
+                <input onChange={(e) => setUserInput({...userInput, email: e.currentTarget.value})} 
+                type="email" />
             </div>
             <div className={styles.input_form}>
                 <label>Введите пароль</label>
-                <input type="password" />
+                <input onChange={(e) => setUserInput({...userInput, password: e.currentTarget.value})}
+                type="password" />
             </div>
             <button onClick={() => {
-                handleAuth()
-            }} className={styles.btn_auth}>Войти</button>
+                handleAuth(userInput.email, userInput.password)
+            }} className={styles.btn_auth}>{title}</button>
             <div className={styles.change_form}>
                 <button onClick={() => changeForm()}>Или {subTitle}</button>
             </div>

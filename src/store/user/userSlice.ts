@@ -12,9 +12,9 @@ const userSlice = createSlice({
         setUser(state, action) {
             state.name = action.payload.displayName
             state.email = action.payload.email
-            state.photo = action.payload.photoUrl
-            state.id = action.payload.id
-            state.token = action.payload.token
+            state.photo = action.payload.photoURL
+            state.id = action.payload.uid
+            state.token = action.payload.accessToken
         }
     }
 })

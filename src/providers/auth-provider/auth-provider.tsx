@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { useAppSelector } from "../../hooks";
 import { Authorization } from "../../screens";
 
 interface AuthProviderProp {
@@ -6,11 +7,13 @@ interface AuthProviderProp {
 }
 
 export const AuthProvider : FC<AuthProviderProp> = ({children}) => {
-    const isAuth = false
+    
+    const {token} = useAppSelector(state => state.user)
+
     return (
         <div>
             {
-                (isAuth) ? children : <Authorization/>
+                (token) ? children : <Authorization/>
             }
         </div>
     )
