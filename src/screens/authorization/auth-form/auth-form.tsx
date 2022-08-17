@@ -4,8 +4,8 @@ import styles from './auth-form.module.scss'
 interface AuthFormProp {
     title: string,
     subTitle: string,
-    changeForm: Function,
-    handleAuth: Function
+    changeForm: () => void,
+    handleAuth: (email: string, password: string) => void
 }
 
 export const AuthForm : FC<AuthFormProp> = ({title, subTitle, changeForm, handleAuth}) => {

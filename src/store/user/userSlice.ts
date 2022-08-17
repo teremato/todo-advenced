@@ -10,11 +10,11 @@ const userSlice = createSlice({
     initialState,
     reducers: {
         setUser(state, action) {
-            state.name = action.payload.displayName
+            state.name = action.payload.providerData[0].displayName
             state.email = action.payload.email
-            state.photo = action.payload.photoURL
+            state.photo = action.payload.providerData[0].photoURL
             state.id = action.payload.uid
-            state.token = action.payload.accessToken
+            state.token = action.payload.stsTokenManager.accessToken
         }
     }
 })
