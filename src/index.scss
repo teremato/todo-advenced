@@ -10,13 +10,7 @@ body {
 .App {
     width: 100vw;
     height: 100vh;
-
-    display: flex;
-    
 }
-.App_content {
-    width: 90%;
+.App_main_content {
     display: flex;
-    flex-direction: column;
-    align-items: center;
 }
