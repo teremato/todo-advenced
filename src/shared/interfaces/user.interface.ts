@@ -3,5 +3,4 @@ export interface IUser {
     email: string,
     photo: string | null
     id: string,
-    token: string
 }

@@ -5,7 +5,7 @@ import styles from './header.module.scss'
 
 export const Header : FC = () => {
 
-    const {name, photo, email} = useAppSelector((state) => state.user)
+    const {name, photo, email} = useAppSelector((state) => state.account.user)
     const {isDark} = useAppSelector((state) => state.theme)
 
     const defaultImg = 'https://img-fotki.yandex.ru/get/4106/319762282.18/0_10b4c2_859dfe5e_XL'
