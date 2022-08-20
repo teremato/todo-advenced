@@ -1,12 +1,14 @@
 import { FC, useState } from "react"
 import { ClosedIcon } from "../../../../components/ui/icons/icons"
+import { ITodo } from "../../../../shared/interfaces/todo.interfase"
 import styles from './todo-item-modal.module.scss'
 
 interface TodoItemModalProp {
-    setIsOpen: Function
+    setIsOpen: Function,
+    addTodo: (todo: ITodo) => void
 }
 
-export const TodoItemModal : FC<TodoItemModalProp> = ({setIsOpen}) => {
+export const TodoItemModal : FC<TodoItemModalProp> = ({setIsOpen, addTodo}) => {
 
     const [userInput, setUserInput] = useState({
         title: '',
@@ -32,7 +34,14 @@ export const TodoItemModal : FC<TodoItemModalProp> = ({setIsOpen}) => {
                 onChange={(e) => setUserInput({...userInput, body: e.currentTarget.value})}
                 />
             </div>
-            <button>Добавить</button>
+            <button onClick={() => {
+                addTodo({
+                    id: Date.now(),
+                    title: userInput.title,
+                    body: userInput.body,
+                    complete: false
+                })
+            }}>Добавить</button>
         </div>
     )
 }

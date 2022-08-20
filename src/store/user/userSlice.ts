@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { ITodo } from "../../shared/interfaces/todo.interfase";
 import { IUser } from "../../shared/interfaces/user.interface";
 
 interface IUserState {
-    user: IUser
+    user: IUser,
+    todos: Array<ITodo>
 }
 
 const initialState : IUserState = {
@@ -11,7 +13,8 @@ const initialState : IUserState = {
         email: '',
         photo: '',
         id: ''
-    }
+    },
+    todos: []
 }
 
 const userSlice = createSlice({
@@ -23,9 +26,21 @@ const userSlice = createSlice({
         },
         removeUser(state) {
             
+        },
+        getTodos(state, action) {
+            state.todos = action.payload.todos
+        },
+        addTodo(state, action) {
+            state.todos.push(action.payload)
+        },
+        toggleTodo(state, action) {
+
+        },
+        removeTodo(state, action) {
+            
         }
     }
 })
 
-export const { setUser, removeUser } = userSlice.actions
+export const { setUser, getTodos, addTodo, removeUser } = userSlice.actions
 export default userSlice.reducer
