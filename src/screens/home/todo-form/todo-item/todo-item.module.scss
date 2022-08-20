@@ -1,0 +1,33 @@
+.todo_item {
+    padding: 15px;
+    border-radius: 10px;
+    background-color: white;
+
+    & .todo_item_title {
+        font-size: 23px;
+    }
+
+    & .todo_item_controller {
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 5px;
+        color: rgb(183, 165, 165);  
+
+        & .todo_item_controller_icon {
+            cursor: pointer;
+            transition: all .2s;
+        }
+        & .toggle:hover {
+            color: rgb(109, 227, 109);
+        }
+        & .remove:hover {
+            color: rgb(222, 36, 70);
+        }
+    }
+    
+    & .todo_item_body {
+        color: rgb(183, 165, 165)
+    }
+}

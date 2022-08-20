@@ -1,6 +1,7 @@
 import { AuthProvider, ThemeProvider } from "./providers";
 import { Aside, Header, Page } from "./components";
 import './index.scss'
+import { Home } from "./screens/home/home";
 
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
           <div className='App_main_content'>
             <Aside/>
             <Page>
-              <div></div>
+              <Home/>
             </Page>
           </div>
         </div>
