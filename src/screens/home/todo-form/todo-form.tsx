@@ -1,43 +1,45 @@
 import { FC, useState, useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../../hooks"
-import { getTodo, setTodo } from "../../../services/todo/todo-services"
-import { addTodo, getTodos } from "../../../store/user/userSlice"
+import { getTodo, setRemoveTodo, setTodo, setToggleTodo, updateTodo } from "../../../services/todo/todo-services"
 import { ITodo } from "../../../shared/interfaces/todo.interfase"
 import { ModalWindow } from "../../../components/ui/modal/modal"
 import { TodoItemModal } from "./todo-item-modal/todo-item-modal"
 import { TodoItem } from "./todo-item/todo-item"
 import styles from './todo-form.module.scss'
+import { addTodo, getTodos, toggleTodo, removeTodo } from "../../../store/todos/todosSlice"
 
 
 export const TodoForm : FC = () => {
 
     const dispatch = useAppDispatch()
 
-    const {id } = useAppSelector((state) => state.account.user)
-    const todos = useAppSelector((state) => state.account.todos)
+    const {id : userId } = useAppSelector((state) => state.account.user)
+    const todos = useAppSelector((state) => state.todos.todos)
 
     const [isOpen, setIsOpen] = useState<boolean>(false)
     
 
     useEffect(() => {
-        getTodo(id).then((data) => {
+        getTodo(userId).then((data) => {
             dispatch(getTodos(data.data()))
         })
-    }, [dispatch, id])
+    }, [dispatch, userId])
 
     const handleTodoAdd = (todo : ITodo) => {
-        setTodo(id, todos, todo).then(() => {
+        setTodo(userId, todos, todo).then(() => {
             dispatch(addTodo(todo))
         })
         setIsOpen(false)
     }
 
-    const handleToggle = (id: string) => {
-
+    const handleToggle = (id: string | number)=> {
+        setToggleTodo(userId, id, todos)
+        .then(() => dispatch(toggleTodo({id: id})))
     }
 
-    const removeTodo = (id: string) => {
-        
+    const handleRemoveTodo = (id: string | number) => {
+        setRemoveTodo(userId, id, todos)
+        .then(() => dispatch(removeTodo({id: id})))
     }
 
     return (
@@ -51,7 +53,12 @@ export const TodoForm : FC = () => {
             {
                 (todos) ?
                 todos.map((todo) => {
-                    return <TodoItem key={todo.id} todo={todo}/>
+                    return <TodoItem 
+                    key={todo.id} 
+                    todo={todo}
+                    handleToggle={handleToggle}
+                    handleRemoveTodo={handleRemoveTodo}
+                    />
                 }) : ''
             }
             </div>
