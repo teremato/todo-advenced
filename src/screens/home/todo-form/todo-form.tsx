@@ -1,12 +1,12 @@
 import { FC, useState, useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../../hooks"
-import { getTodo, setRemoveTodo, setTodo, setToggleTodo, updateTodo } from "../../../services/todo/todo-services"
+import { getTodo, setRemoveTodo, setTodo, setToggleTodo } from "../../../services/todo/todo-services"
+import { addTodo, getTodos, toggleTodo, removeTodo } from "../../../store/todos/todosSlice"
 import { ITodo } from "../../../shared/interfaces/todo.interfase"
 import { ModalWindow } from "../../../components/ui/modal/modal"
 import { TodoItemModal } from "./todo-item-modal/todo-item-modal"
 import { TodoItem } from "./todo-item/todo-item"
 import styles from './todo-form.module.scss'
-import { addTodo, getTodos, toggleTodo, removeTodo } from "../../../store/todos/todosSlice"
 
 
 export const TodoForm : FC = () => {

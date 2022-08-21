@@ -14,7 +14,10 @@ export const TodoItem : FC<TodoItemProp> = ({todo, handleToggle, handleRemoveTod
         <div className={styles.todo_item}>
             <div className={styles.todo_item_controller}>
                 <ToggleIcon 
-                className={`${styles.todo_item_controller_icon} ${styles.toggle}`}
+                className={
+                    (todo.complete) ? `${styles.todo_item_controller_icon} ${styles.toggle_active}`
+                    : `${styles.todo_item_controller_icon} ${styles.toggle}`
+                }
                 onClick={() => handleToggle(todo.id)}
                 />
                 <RemoveIcon
@@ -22,8 +25,12 @@ export const TodoItem : FC<TodoItemProp> = ({todo, handleToggle, handleRemoveTod
                 onClick={() => handleRemoveTodo(todo.id)} 
                 />
             </div>
-            <div className={styles.todo_item_title}>{todo.title}</div>
-            <div className={styles.todo_item_body}>{todo.body}</div>
+            <div className={(!todo.complete) ? styles.todo_item_title 
+            : `${styles.todo_item_complete} ${styles.todo_item_title}`}
+            >{todo.title}</div>
+            <div className={(!todo.complete) ? styles.todo_item_body
+            :  `${styles.todo_item_body} ${styles.todo_item_complete}`}
+            >{todo.body}</div>
         </div>
     )
 }

@@ -5,6 +5,7 @@
 
     & .todo_item_title {
         font-size: 23px;
+        transition: all .2s;
     }
 
     & .todo_item_controller {
@@ -25,9 +26,18 @@
         & .remove:hover {
             color: rgb(222, 36, 70);
         }
+        & .toggle_active {
+            color: rgb(109, 227, 109);
+        }
     }
     
     & .todo_item_body {
+        color: rgb(183, 165, 165);
+        transition: all .2s;
+    }
+
+    & .todo_item_complete {
+        text-decoration: line-through;
         color: rgb(183, 165, 165)
     }
 }

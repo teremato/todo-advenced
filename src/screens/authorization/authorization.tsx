@@ -5,20 +5,23 @@ import { createAndGetUser, getUser, UserLogin, UserRegister } from "../../servic
 import { useAppDispatch } from "../../hooks";
 import { setUser } from "../../store/user/userSlice";
 import styles from './authorization.module.scss'
+import { Loader } from "../../components/ui/loader/loader";
 
 export const Authorization : FC = () => {
 
     const dispatch = useAppDispatch()
     const [isLogin, setIsLogin] = useState(true)
+    const [isLoader, setIsLoader] = useState<boolean>(false)
 
     // Функция меняет форму аунтефикации (Регистрация/Вход)
     const changeForm = () => { setIsLogin(!isLogin) }
     
     // Функция для входа в систему по нажатию
     const handleLogin = (email: string, password: string, name: string = '') => {
+        setIsLoader(true)
         UserLogin(email, password).then((user) => {
             getUser(user.uid).then((data) => dispatch(setUser(data.data())))
-        })
+        }).then(() => setIsLoader(false))
     }
 
     // Функция для регистрации и входа в систему по нажатию
@@ -31,6 +34,7 @@ export const Authorization : FC = () => {
     }
 
     return (
+        (isLoader) ? <Loader/> :
         <div className={styles.page_wrapper}>
             <div className={styles.content}>
                 {
