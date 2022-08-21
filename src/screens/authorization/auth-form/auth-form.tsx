@@ -4,12 +4,13 @@ import styles from './auth-form.module.scss'
 interface AuthFormProp {
     title: string,
     subTitle: string,
+    isLogin: boolean,
     changeForm: () => void,
     handleAuth: (email: string, password: string, name?: string) => void,
-    isLogin: boolean
+    isValid: boolean
 }
 
-export const AuthForm : FC<AuthFormProp> = ({title, subTitle, changeForm, handleAuth, isLogin}) => {
+export const AuthForm : FC<AuthFormProp> = ({title, subTitle, changeForm, handleAuth, isLogin, isValid}) => {
 
     const [userInput, setUserInput] = useState({
         password: '',
@@ -38,9 +39,14 @@ export const AuthForm : FC<AuthFormProp> = ({title, subTitle, changeForm, handle
                 <input onChange={(e) => setUserInput({...userInput, password: e.currentTarget.value})}
                 type="password" />
             </div>
-            <button onClick={() => {
-                handleAuth(userInput.email, userInput.password, userInput.name)
-            }} className={styles.btn_auth}>{title}</button>
+            <div className={styles.container}>
+                <button onClick={() => {
+                    handleAuth(userInput.email, userInput.password, userInput.name)
+                }} className={styles.btn_auth}>{title}</button>
+                <div className={styles.error}>
+                    {(!isValid) ? ' ' : 'Неверный логин или пароль!'}
+                </div>
+            </div>
             <div className={styles.change_form}>
                 <button onClick={() => changeForm()}>Или {subTitle}</button>
             </div>
