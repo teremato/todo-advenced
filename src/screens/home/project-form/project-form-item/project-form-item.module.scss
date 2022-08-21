@@ -1,0 +1,30 @@
+.project_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+
+    & .project_item_info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        & .project_item_color {
+            font-size: 24px;
+            border-radius: 50%;
+        }
+    
+        & .project_item_name {
+            font-size: 16px;
+        }
+    }
+
+    & .project_item_list_icon {
+        font-size: 25px;
+        color: rgb(183, 165, 165);
+    }
+}

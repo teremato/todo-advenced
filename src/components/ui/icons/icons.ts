@@ -10,4 +10,6 @@ export {BiCheck as ToggleIcon} from 'react-icons/bi'
 export {BiCheckDouble as ReadyToggleICon} from 'react-icons/bi'
 export {BiTrashAlt as RemoveIcon} from 'react-icons/bi'
 export {FaRegWindowClose as ClosedIcon} from 'react-icons/fa'
+export {HiOutlineFolder as ProjectHomeIcon} from 'react-icons/hi'
+export {FiList as ListIcon} from 'react-icons/fi'
 
