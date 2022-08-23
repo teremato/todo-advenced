@@ -6,17 +6,18 @@
 
         & .header_btn {
             cursor: pointer;
-            margin-right: 20px;
+            margin-right: 5px;
             font-size: 30px;
             color: rgb(255, 104, 117);
         }
 
-        & .projects_page_content {
-            width: 10%;
-            display: flex;
-            flex-direction: column;
+    }
+    & .projects_page_content {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
 
-            margin: 10px;
-        }
     }
 }

@@ -14,3 +14,7 @@ export {HiOutlineFolder as ProjectHomeIcon} from 'react-icons/hi'
 export {FiList as ListIcon} from 'react-icons/fi'
 export {RiFolderAddFill as AddFolderIcon} from 'react-icons/ri'
 
+export {GoListUnordered as AllListIcon} from 'react-icons/go'
+export {GoTasklist as ToggleListIcon} from 'react-icons/go'
+export {MdDateRange as DateListIcon} from 'react-icons/md'
+export {TbExternalLink as NavLinkIcon} from 'react-icons/tb'

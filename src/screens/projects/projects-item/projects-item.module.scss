@@ -1,0 +1,52 @@
+.projects_item {
+    width: 94%;
+
+    display: flex;
+    justify-content: space-between;
+
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgb(249, 234, 237);
+
+    & .projects_item_header {
+
+        & .title {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            font-size: 19px;
+            color: rgb(219, 142, 148);
+
+            & .title_icon {
+                cursor: pointer;
+                color: rgb(171, 123, 123);
+                font-size: 22px;
+            }
+        }
+        & .description {
+            color: rgb(244, 174, 180);
+        }
+    }
+
+    & .projects_item_info {
+        display: flex;
+        gap: 10px;
+
+        padding: 10px;
+        border-radius: 10px;
+        background-color: white;
+        color: rgb(183, 165, 165);
+
+        & .item_field {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 17px;
+
+            & .item_icon {
+                font-size: 22px;
+            }
+        }
+    }
+}
