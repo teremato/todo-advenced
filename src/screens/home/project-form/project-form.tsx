@@ -1,16 +1,22 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../../hooks";
+import { getProjects } from "../../../services/project/project-services";
+import { getAllProjects } from "../../../store/projects/projectsSlice";
 import { ProjectFormItem } from "./project-form-item/project-form-item";
 import styles from './project-form.module.scss'
 
 export const ProjectForm : FC = () => {
 
-    const testArr = [
-        {name: 'Учеба', color: 'green'},
-        {name: 'Проект', color: 'blue'},
-        {name: 'Дела по магазину', color: 'black'},
-        {name: 'Дела по дому', color: 'purple'},
-        {name: 'Работа', color: 'red'}
-    ]
+    const dispatch = useAppDispatch()
+
+    const {projects} = useAppSelector(state => state.projects)
+    const {id: userId} = useAppSelector(state => state.account.user) 
+
+    useEffect(() => {
+        getProjects(userId).then((data) => {
+            dispatch(getAllProjects(data.data()))
+        })
+    }, [dispatch, userId])
 
     return (
         <div className={styles.project_form}>
@@ -19,9 +25,10 @@ export const ProjectForm : FC = () => {
             </div>
             <div className={styles.project_form_list}>
             {
-                testArr.map((pj) => {
-                    return <ProjectFormItem project={pj}/>
-                })
+                (projects.length > 0) ?
+                projects.map((project) => {
+                    return <ProjectFormItem key={project.id} project={project}/>
+                }) : ''
             }
             </div>
         </div>

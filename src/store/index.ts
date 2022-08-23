@@ -2,12 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import themeReducer from "./theme/themeSlice";
 import userReducer from './user/userSlice'
 import todosReducer from './todos/todosSlice'
+import projectsReducer from './projects/projectsSlice'
 
 const store = configureStore({
     reducer: {
         account: userReducer,
         theme: themeReducer,
-        todos: todosReducer
+        todos: todosReducer,
+        projects: projectsReducer
     }
 })
 

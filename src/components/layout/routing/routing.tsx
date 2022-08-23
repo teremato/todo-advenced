@@ -7,11 +7,10 @@ import { Dashboard, Home, Projects } from "../../../screens";
 export const Routing : FC = () => {
     return (
         <Routes>
-            <Route path='' element={<Home/>}/>
+            <Route path='/*' element={<Home/>}/>
             <Route path={RoutesMap.HOME} element={<Home/>}/>
-            <Route path={RoutesMap.PROJECTS} element={<Projects/>}>
-            </Route>
-            <Route path='/*' element={<Dashboard/>}/>
+            <Route path={RoutesMap.PROJECTS} element={<Projects/>}/>
+            <Route path='/projects/:id' element={<Dashboard/>}/>
         </Routes>
     )
 }

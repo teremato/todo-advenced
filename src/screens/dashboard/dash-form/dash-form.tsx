@@ -1,6 +1,7 @@
 import { FC, useState } from "react";
-import { AddFolderIcon, AddProjectIcon, ClosedFormIcon, ClosedIcon } from "../../../components/ui/icons/icons";
+import { AddProjectIcon, ClosedFormIcon } from "../../../components/ui/icons/icons";
 import styles from './dash-form.module.scss'
+import { DashItem } from "./dash-item/dash-item";
 
 
 interface DashboardFormProp {
@@ -31,7 +32,7 @@ export const DashboardForm : FC<DashboardFormProp> = ({title, haveInput}) => {
                 </div> : ''
                 }
                 {
-                    
+
                 }
             </div>
         </div>

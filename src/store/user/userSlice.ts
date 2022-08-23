@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ITodo } from "../../shared/interfaces/todo.interfase";
 import { IUser } from "../../shared/interfaces/user.interface";
 
 interface IUserState {

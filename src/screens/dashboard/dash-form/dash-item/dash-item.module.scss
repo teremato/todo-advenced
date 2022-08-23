@@ -1,0 +1,17 @@
+.dash_item {
+    padding: 10px;
+
+    border-radius: 10px;
+    background-color: white;
+    color: rgb(148, 134, 134);
+
+    & .dash_item_header {
+        display: flex;
+        justify-content: flex-end;
+        font-size: 20px;
+
+        & .dash_item_header_icon {
+            cursor: pointer;
+        }
+    }
+}

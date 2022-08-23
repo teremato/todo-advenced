@@ -34,6 +34,9 @@
     }
 
     & .dash_form_list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
         width: 94%;
         
         & .dash_list_add_todo {
