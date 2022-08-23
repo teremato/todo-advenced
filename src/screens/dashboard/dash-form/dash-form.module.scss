@@ -1,0 +1,81 @@
+.dash_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: min-content;
+    width: 45%;
+    background-color: rgb(249, 234, 237);
+    padding: 10px;
+    margin: 15px;
+    border-radius: 10px;
+    transition: all .2s;
+
+    & .dash_form_title {
+        width: 94%;
+        margin: 5px 0px;
+        font-size: 17px;
+        color: rgb(255, 151, 160);
+    }
+
+    & .dash_form_btn {
+        cursor: pointer;
+
+        width: 94%;
+        padding: 6px;
+        margin-bottom: 10px;
+
+        font-size: 20px;
+        border: none {
+            radius: 10px;
+        }
+        background-color: rgb(255, 151, 160);
+        color: white; 
+    }
+
+    & .dash_form_list {
+        width: 94%;
+        
+        & .dash_list_add_todo {
+            background-color: white;
+            padding: 10px;
+            border-radius: 10px;
+
+            font-family: inherit;
+            & textarea {
+                width: 100%;
+
+                border: none;
+                font: {
+                    size: 16px;
+                    family: inherit;
+                }
+                resize: none;
+                outline: none;
+                color: inherit;
+            }
+            & button {
+                background-color: rgb(255, 151, 160);
+                border: none {
+                    radius: 5px;
+                }
+                color: white;
+                padding: 5px 10px;
+            }
+            & .list_header_closed {
+                cursor: pointer;
+
+                display: flex;
+                justify-content: flex-end;
+
+                font-size: 20px;
+            }
+            & .list_add_todo {
+                cursor: pointer;
+
+                font-size: 25px;
+                color: rgb(255, 151, 160);
+            }
+        }
+    }
+}

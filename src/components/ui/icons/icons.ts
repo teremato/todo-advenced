@@ -18,3 +18,6 @@ export {GoListUnordered as AllListIcon} from 'react-icons/go'
 export {GoTasklist as ToggleListIcon} from 'react-icons/go'
 export {MdDateRange as DateListIcon} from 'react-icons/md'
 export {TbExternalLink as NavLinkIcon} from 'react-icons/tb'
+
+export {AiFillFileAdd as AddProjectIcon} from 'react-icons/ai'
+export {CgClose as ClosedFormIcon} from 'react-icons/cg'
