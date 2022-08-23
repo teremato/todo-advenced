@@ -12,4 +12,5 @@ export {BiTrashAlt as RemoveIcon} from 'react-icons/bi'
 export {FaRegWindowClose as ClosedIcon} from 'react-icons/fa'
 export {HiOutlineFolder as ProjectHomeIcon} from 'react-icons/hi'
 export {FiList as ListIcon} from 'react-icons/fi'
+export {RiFolderAddFill as AddFolderIcon} from 'react-icons/ri'
 

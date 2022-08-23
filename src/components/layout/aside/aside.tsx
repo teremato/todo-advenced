@@ -1,7 +1,8 @@
 import { FC } from "react";
+import { NavLink } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from "../../../hooks";
 import { changeTheme } from "../../../store/theme/themeSlice";
-import { removeUser } from "../../../store/user/userSlice";
+import { RoutesMap } from "../../../utils/constans/routes.constans";
 import * as Icon from '../../ui/icons/icons'
 import styles from './aside.module.scss'
 
@@ -19,11 +20,11 @@ export const Aside : FC = () => {
                 <ul>
                     <li>
                         <Icon.HomeIcon className={styles.nav_icon}/>
-                        <div>Домашняя страница</div>
+                        <NavLink to={RoutesMap.HOME}>Домашняя страница</NavLink>
                     </li>
                     <li>
                         <Icon.ProjectsIcon className={styles.nav_icon}/>
-                        <div>Проекты</div>
+                        <NavLink to={RoutesMap.PROJECTS}>Проекты</NavLink>
                     </li>
                 </ul>
                 <ul>
@@ -40,7 +41,7 @@ export const Aside : FC = () => {
                         <Icon.SettingsIcon className={styles.nav_icon}/>
                         <div>Настройки</div>
                     </li>
-                    <li onClick={() => removeUser()}>
+                    <li>
                         <Icon.LogOutIcon className={styles.nav_icon}/>
                         <div>Выйти</div>
                     </li>

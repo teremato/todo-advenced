@@ -14,7 +14,9 @@ export const Page : FC<PageProp> = ({children}) => {
         <div className={
             (isDark) ? `${styles.page} ${styles.active}` : styles.page
         }>
-            {children}
+            <div className={styles.page_content}>
+                {children}
+            </div>
         </div>
     )
 }

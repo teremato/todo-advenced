@@ -37,6 +37,11 @@
                 & .nav_icon {
                     font-size: 20px;
                 }
+                & a {
+                    text-decoration: none;
+                    color: inherit;
+                    transition: all .2s;
+                }
             }
         }
     }
@@ -44,4 +49,7 @@
 .active {
     background-color: rgb(70, 70, 76);
     color: rgb(227, 217, 217);
+}
+.nav_active {
+    color: rgb(255, 104, 117);
 }

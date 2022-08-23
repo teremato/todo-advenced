@@ -2,12 +2,16 @@
     width: 80%;
     height: 100%;
 
-    padding: 20px;
     margin: 20px;
+    margin-left: 0;
 
     border-radius: 20px;
     box-shadow: 0px 0px 21px 0px rgba(34, 60, 80, 0.2);
     transition: all .3s;
+
+    & .page_content {
+        padding: 10px;
+    }
 }
 .active {
     background-color: rgb(70, 70, 76);
