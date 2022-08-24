@@ -12,6 +12,7 @@ interface AuthFormProp {
 
 export const AuthForm : FC<AuthFormProp> = ({title, subTitle, changeForm, handleAuth, isLogin, isValid}) => {
 
+
     const [userInput, setUserInput] = useState({
         password: '',
         email: '',
@@ -22,7 +23,7 @@ export const AuthForm : FC<AuthFormProp> = ({title, subTitle, changeForm, handle
         <div className={styles.form}>
             <div className={styles.title}>{title}</div>
             {
-                (!isLogin) ? 
+                (!isLogin) ?
                 <div className={styles.input_form}>
                     <label>Введите Имя</label>
                     <input onChange={(e) => setUserInput({...userInput, name: e.currentTarget.value})} 
@@ -36,7 +37,7 @@ export const AuthForm : FC<AuthFormProp> = ({title, subTitle, changeForm, handle
             </div>
             <div className={styles.input_form}>
                 <label>Введите пароль</label>
-                <input onChange={(e) => setUserInput({...userInput, password: e.currentTarget.value})}
+                <input title="вава" onChange={(e) => setUserInput({...userInput, password: e.currentTarget.value})}
                 type="password" />
             </div>
             <div className={styles.container}>

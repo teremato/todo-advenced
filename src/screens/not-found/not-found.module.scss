@@ -1,0 +1,23 @@
+.not_found_page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    width: 100%;
+    height: 30vh;
+
+    & .not_found_page_title {
+        font-size: 20px;
+    }
+    & .link_bar {
+        display: flex;
+        gap: 10px;
+
+        & a {
+            text-decoration: none;
+            color: rgb(255, 104, 117);
+        }
+    }
+}

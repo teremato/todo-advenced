@@ -1,14 +1,13 @@
 import { FC } from "react";
 import { useAppSelector } from "../../../hooks";
+import { getShortName } from "../../../utils/helpers/shortName.helpers";
 import { SearchIcon } from "../../ui/icons/icons";
 import styles from './header.module.scss'
 
 export const Header : FC = () => {
 
-    const {name, photo, email} = useAppSelector((state) => state.account.user)
+    const {name, email} = useAppSelector((state) => state.account.user)
     const {isDark} = useAppSelector((state) => state.theme)
-
-    const defaultImg = 'https://img-fotki.yandex.ru/get/4106/319762282.18/0_10b4c2_859dfe5e_XL'
 
     return (
         <header className={
@@ -23,10 +22,7 @@ export const Header : FC = () => {
             </div>
             <div className={styles.header_user}>
                 <div className={styles.header_user_name}>{(name) ? name : email}</div>
-                <img
-                 src={ (photo) ? photo : defaultImg } 
-                 alt={email}
-                />
+                <div className={styles.img}>{getShortName(name  as string)}</div>
             </div>
         </header>
     )
