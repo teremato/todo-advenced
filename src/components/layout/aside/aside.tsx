@@ -39,7 +39,7 @@ export const Aside : FC = () => {
                     </li>
                     <li>
                         <Icon.SettingsIcon className={styles.nav_icon}/>
-                        <div>Настройки</div>
+                        <NavLink to={RoutesMap.SETTINGS}>Настройки</NavLink>
                     </li>
                     <li>
                         <Icon.LogOutIcon className={styles.nav_icon}/>

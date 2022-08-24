@@ -5,6 +5,7 @@ import {
     setDoc, 
 } from "firebase/firestore"
 import { auth, db } from "../../firebase"
+import { IUser } from "../../shared/interfaces/user.interface"
 
 
 // Авторизация юзера по пароль и почте
@@ -34,4 +35,9 @@ export const getUser = async(userId: string) => {
 // Добавления юзера в базу данных по id
 export const setUser = async(userId: string, user: object) => {
     return await setDoc(doc(db, 'users', userId), { ...user} )
+}
+
+// Смена имени
+export const changeUserName = async(userID: string, newName: string, user: IUser) => {
+    return await setDoc(doc(db, 'users', userID), {...user, name: newName})
 }

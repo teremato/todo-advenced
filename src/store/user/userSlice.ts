@@ -21,11 +21,14 @@ const userSlice = createSlice({
         setUser(state, action) {
            state.user =  Object.assign({}, state.user, action.payload)
         },
+        changeNameForUser(state, action) {
+            state.user = {...state.user, name: action.payload.newName}
+        },
         removeUser(state) {
             
         }
     }
 })
 
-export const { setUser, removeUser } = userSlice.actions
+export const { setUser, removeUser, changeNameForUser } = userSlice.actions
 export default userSlice.reducer

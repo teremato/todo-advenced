@@ -1,5 +1,6 @@
 export enum RoutesMap {
     HOME = '/home',
     PROJECTS = '/projects',
-    AUTHORIZATION = '/authorization'
+    AUTHORIZATION = '/authorization',
+    SETTINGS = '/settings'
 }
