@@ -12,6 +12,21 @@
 
         & .dash_item_header_icon {
             cursor: pointer;
+            transition: all .1s;
+        }
+        & .toggle:hover {
+            color: rgb(109, 227, 109);
+        }
+        & .remove:hover {
+            color: rgb(222, 36, 70);
+        }
+        & .complete {
+            color: rgb(109, 227, 109);
         }
     }
+}
+.todo_item_complete {
+    text-decoration: line-through;
+    color: rgb(183, 165, 165)
+    
 }

@@ -47,6 +47,11 @@
             & .item_icon {
                 font-size: 22px;
             }
+            & .item_icon_remove {
+
+                cursor: pointer;
+                color: rgb(219, 142, 148)
+            }
         }
     }
 }

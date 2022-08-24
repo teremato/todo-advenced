@@ -20,6 +20,9 @@ const projectSlice = createSlice({
         addProject(state, action) {
             state.projects.push(action.payload)
         },
+        removeCurrentProject(state, action) {
+            state.projects = state.projects.filter((project) => project.id !== action.payload.projectID)
+        },
         addProjectTodo(state, action) {
             state.projects = state.projects.map((project) => {
                 if(project.id === action.payload.projectId) {
@@ -57,6 +60,7 @@ const projectSlice = createSlice({
 export const { 
     getAllProjects,
     addProject,
+    removeCurrentProject,
     addProjectTodo,
     toggleProjectTodo,
     removeProjectTodo 

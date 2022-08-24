@@ -8,6 +8,13 @@ import { getCurrentDate } from "../../utils/helpers/getDate.helpers"
 export const setProject = async(userId : string, projects : Array<IProject>, project : IProject) => {
     await setDoc(doc(db, 'projects', userId), {project: [...projects, project]})
 }
+
+// Удаления проекта
+export const removeProjectFromServer = async(userId: string, projectID: string, projects: Array<IProject>) => {
+    let newArray = projects.filter((project) => project.id !== projectID)
+    await updateTodo(userId, newArray)
+}
+
 // Получение проектов с сервера
 export const getProjects = async(userId: string) => {
     return await getDoc(doc(db, 'projects', userId))

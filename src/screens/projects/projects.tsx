@@ -3,10 +3,9 @@ import { AddFolderIcon } from "../../components/ui/icons/icons";
 import { ModalWindow } from "../../components/ui/modal/modal";
 import { UIPageTitle } from "../../components/ui/page-title/page-tile";
 import { useAppDispatch, useAppSelector } from "../../hooks";
-import { setProject } from "../../services/project/project-services";
+import { removeProjectFromServer, setProject } from "../../services/project/project-services";
 import { Project } from "../../shared/creaters/project-creater";
-import { IProject } from "../../shared/interfaces/project.interfase";
-import { addProject } from "../../store/projects/projectsSlice";
+import { addProject, removeCurrentProject } from "../../store/projects/projectsSlice";
 import { ProjectItemModal } from "./projects-item-modal/projects-item-modal";
 import { ProjectItem } from "./projects-item/projects-item";
 import styles from './projects.module.scss'
@@ -29,6 +28,11 @@ export const Projects : FC = () => {
             setIsOpen(false)
         }
     }
+    
+    const removeProject = (projectID : string) => {
+        removeProjectFromServer(userID, projectID ,projects)
+        .then(() => dispatch(removeCurrentProject({projectID: projectID})))
+    }
 
     return (
         <div className={styles.projects_page}>
@@ -41,7 +45,11 @@ export const Projects : FC = () => {
                 {
                     (projects.length > 0) ?
                     projects.map((project) => {
-                        return <ProjectItem key={project.id} project={project}/>
+                        return <ProjectItem
+                        key={project.id}
+                        project={project}
+                        removeProject={removeProject}
+                        />
                     }) : ''
                 }
             </div>

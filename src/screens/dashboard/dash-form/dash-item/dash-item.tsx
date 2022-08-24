@@ -15,14 +15,17 @@ export const DashItem : FC<DashItemProp> = ({todo, toggleTodo, removeTodo}) => {
             <div className={styles.dash_item_header}>
                 <ToggleIcon 
                 onClick={() => toggleTodo(todo.id)}
-                className={styles.dash_item_header_icon}
+                className={(todo.complete) ?
+                    `${styles.dash_item_header_icon} ${styles.complete}`
+                    :
+                    `${styles.dash_item_header_icon} ${styles.toggle}`}
                 />
                 <RemoveIcon
                 onClick={() => removeTodo(todo.id)}
-                className={styles.dash_item_header_icon}
+                className={`${styles.dash_item_header_icon} ${styles.remove}`}
                 />
             </div>
-            <div>{todo.body}</div>
+            <div className={(todo.complete) ? styles.todo_item_complete : ''}>{todo.body}</div>
         </div>
     )
 }
