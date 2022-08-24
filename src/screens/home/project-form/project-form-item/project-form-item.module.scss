@@ -16,6 +16,10 @@
         & .project_item_color {
             font-size: 24px;
             color: rgb(183, 165, 165);
+
+            @media (max-width: 500px) {
+                display: none;
+            }
         }
     
         & .project_item_name {
@@ -26,5 +30,9 @@
     & .project_item_list_icon {
         font-size: 25px;
         color: rgb(183, 165, 165);
+
+        @media (max-width: 500px) {
+            display: none;
+        }
     }
 }

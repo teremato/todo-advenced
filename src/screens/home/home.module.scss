@@ -3,5 +3,11 @@
         display: flex;
         gap: 10px;
         margin: 10px;
+
+        @media (max-width: 500px) {
+            gap: 5px;
+            margin: 0px;
+            width: 100%;
+        }
     }
 }

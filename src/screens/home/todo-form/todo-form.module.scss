@@ -11,6 +11,10 @@
     background-color: rgb(249, 234, 237);
     color: black;
 
+    @media (max-width: 500px) {
+        width: 70%;
+    }
+
     & .todo_form_header {
         width: 94%;
         display: flex;

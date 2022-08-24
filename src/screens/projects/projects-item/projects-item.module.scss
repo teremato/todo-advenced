@@ -8,6 +8,13 @@
     border-radius: 10px;
     background-color: rgb(249, 234, 237);
 
+    @media (max-width: 500px) {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 90%;
+    }
+
     & .projects_item_header {
 
         & .title {
@@ -37,6 +44,13 @@
         border-radius: 10px;
         background-color: white;
         color: rgb(183, 165, 165);
+
+        @media (max-width: 500px) {
+            
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
 
         & .item_field {
             display: flex;

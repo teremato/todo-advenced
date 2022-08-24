@@ -13,6 +13,10 @@
 
     .input_container {
 
+        @media (max-width: 500px) {
+            width: 100%;
+        }
+
         & input {
             width: 50%;
             padding: 10px;
@@ -23,6 +27,7 @@
             font-size: 16px;
             outline: none;
             color: rgb(162, 150, 150);
+            
         }
 
         & button {

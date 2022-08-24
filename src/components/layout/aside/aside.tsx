@@ -1,13 +1,15 @@
 import { FC } from "react";
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useAppDispatch, useAppSelector, useAuth } from "../../../hooks";
 import { changeTheme } from "../../../store/theme/themeSlice";
+import { removeUser } from "../../../store/user/userSlice";
 import { RoutesMap } from "../../../utils/constans/routes.constans";
 import * as Icon from '../../ui/icons/icons'
 import styles from './aside.module.scss'
 
 export const Aside : FC = () => {
 
+    const navigate = useNavigate()
     const dispatch = useAppDispatch()
     const auth = useAuth()
     const { isDark } = useAppSelector((state) => state.theme)
@@ -43,8 +45,13 @@ export const Aside : FC = () => {
                         <Icon.SettingsIcon className={styles.nav_icon}/>
                         <NavLink to={RoutesMap.SETTINGS}>Настройки</NavLink>
                     </li>
-                    <li>
-                        <Icon.LogOutIcon className={styles.nav_icon}/>
+                    <li onClick={() =>  {
+                        dispatch(removeUser());
+                        navigate(RoutesMap.AUTHORIZATION)
+                    }}>
+                        <Icon.LogOutIcon
+                        className={styles.nav_icon}
+                        />
                         <div>Выйти</div>
                     </li>
                 </ul>

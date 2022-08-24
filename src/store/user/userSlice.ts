@@ -25,7 +25,12 @@ const userSlice = createSlice({
             state.user = {...state.user, name: action.payload.newName}
         },
         removeUser(state) {
-            
+            state.user = {
+                ...state.user,
+                id: '',
+                name: '',
+                email: '',
+                photo: ''} 
         }
     }
 })
