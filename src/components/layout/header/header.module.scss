@@ -78,6 +78,11 @@
                 display: none;
             }
         }
+        & .log_in {
+            cursor: pointer;
+            font-size: 25px;
+            color: rgb(255, 104, 117);
+        }
     }
 }
 .active {

@@ -7,10 +7,13 @@ import { setUser } from "../../store/user/userSlice";
 import styles from './authorization.module.scss'
 import { Loader } from "../../components/ui/loader/loader";
 import { isEmailValid, isPasswordValid } from "../../utils/helpers/validation.helpers";
+import { useNavigate } from "react-router-dom";
+import { RoutesMap } from "../../utils/constans/routes.constans";
 
 export const Authorization : FC = () => {
 
     const dispatch = useAppDispatch()
+    const navigate = useNavigate()
 
     const [isLogin, setIsLogin] = useState(true)
     const [isLoader, setIsLoader] = useState<boolean>(false)
@@ -25,7 +28,10 @@ export const Authorization : FC = () => {
             setIsLoader(true)
             UserLogin(email, password).then((user) => {
                 getUser(user.uid).then((data) => dispatch(setUser(data.data())))
-            }).then(() => setIsLoader(false))
+            }).then(() => {
+                setIsLoader(false)
+                navigate(RoutesMap.HOME)
+            })
         }else {
             setIsValid(true)
             setTimeout(() => {
@@ -41,7 +47,10 @@ export const Authorization : FC = () => {
             UserRegister(email, password).then((user) => {
                 createAndGetUser(user.uid, name, user.email ).then(data => {
                     dispatch(setUser(data.data()))
-                }).then(() => setIsLoader(false))
+                }).then(() => {
+                    setIsLoader(false)
+                    navigate(RoutesMap.HOME)
+                })
             })
         }else {
             setIsValid(true)

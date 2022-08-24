@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useAppSelector } from "../../../hooks";
+import { useAppSelector, useAuth } from "../../../hooks";
 import styles from './page.module.scss'
 
 interface PageProp {
@@ -8,6 +8,7 @@ interface PageProp {
 
 export const Page : FC<PageProp> = ({children}) => {
 
+    const auth = useAuth()
     const {isDark} = useAppSelector((state) => state.theme)
 
     return (

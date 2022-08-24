@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { NavLink } from 'react-router-dom'
-import { useAppDispatch, useAppSelector } from "../../../hooks";
+import { useAppDispatch, useAppSelector, useAuth } from "../../../hooks";
 import { changeTheme } from "../../../store/theme/themeSlice";
 import { RoutesMap } from "../../../utils/constans/routes.constans";
 import * as Icon from '../../ui/icons/icons'
@@ -9,13 +9,15 @@ import styles from './aside.module.scss'
 export const Aside : FC = () => {
 
     const dispatch = useAppDispatch()
+    const auth = useAuth()
     const { isDark } = useAppSelector((state) => state.theme)
-
 
     return (
         <aside className={
             (isDark) ? `${styles.aside} ${styles.active}` : styles.aside
-        }>
+        }style={{
+            pointerEvents: (!auth.isAuth) ? `all` : `none`
+        }}>
             <nav className={styles.nav}>
                 <ul>
                     <li>

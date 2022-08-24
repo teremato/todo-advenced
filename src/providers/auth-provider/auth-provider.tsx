@@ -13,7 +13,7 @@ export const AuthProvider : FC<AuthProviderProp> = ({children}) => {
     return (
         <div>
             {
-                (!isAuth) ? children : <Authorization/>
+                (!isAuth) ? children : ''
             }
         </div>
     )

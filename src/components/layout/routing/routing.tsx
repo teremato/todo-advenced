@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Routes, Route } from "react-router-dom";
 import { RoutesMap } from "../../../utils/constans/routes.constans";
-import { Dashboard, DefaultPage, Home, NotFound, Projects, Settings } from "../../../screens";
+import { Authorization, Dashboard, DefaultPage, Home, NotFound, Projects, Settings } from "../../../screens";
 
 
 export const Routing : FC = () => {
@@ -13,6 +13,7 @@ export const Routing : FC = () => {
             <Route path={RoutesMap.PROJECTS} element={<Projects/>}/>
             <Route path='/projects/:id' element={<Dashboard/>}/>
             <Route path={RoutesMap.SETTINGS} element={<Settings/>}/>
+            <Route path={RoutesMap.AUTHORIZATION} element={<Authorization/>}/>
         </Routes>
     )
 }
