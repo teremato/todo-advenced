@@ -46,7 +46,7 @@ export const TodoForm : FC = () => {
         <div className={styles.todo_form}>
             <div className={styles.todo_form_header}>
                 <div>Мои задачи</div>
-                <div className={styles.todo_count}>{todos.length}</div>
+                <div className={styles.todo_count}>{(todos.length > 0) ? todos.length : ''}</div>
             </div>
             <button onClick={() => setIsOpen(true)} className={styles.add_todo_btn}>+</button>
             <div className={styles.todo_form_list}>

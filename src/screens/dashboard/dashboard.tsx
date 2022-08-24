@@ -2,17 +2,22 @@ import { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { DashboardForm as ReadyDashboard } from "./dash-form/dash-form";
 import { DashboardForm as FinelyDashboard } from "./dash-form/dash-form";
-import { useAppSelector } from "../../hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks";
 import { UIPageTitle } from "../../components/ui/page-title/page-tile";
 import { IProject } from "../../shared/interfaces/project.interfase";
 import styles from './dashboard.module.scss'
+import { addTodoToProject } from "../../services/project/project-services";
+import { IProjectTodo } from "../../shared/interfaces/project-todo.interface";
+import { addProjectTodo } from "../../store/projects/projectsSlice";
 
 
 export const Dashboard : FC = () => {
 
     const { id } = useParams()
+    const dispatch = useAppDispatch()
 
     const { projects } = useAppSelector(state => state.projects)
+    const {id: userId} = useAppSelector(state => state.account.user)
     const [ currentProject, setCurrentProject ] = useState<IProject>({} as IProject)
 
     useEffect(() => {
@@ -22,6 +27,14 @@ export const Dashboard : FC = () => {
             }
         })
     }, [id, projects])
+
+    const addTodo = (project: IProjectTodo) => {
+        addTodoToProject(userId, currentProject.id, projects, project)
+        .then(() => dispatch(addProjectTodo({
+            projectId: currentProject.id, 
+            project: project
+        })))
+    }
 
     return (
         <div className={styles.dashboard_page}>
@@ -33,10 +46,16 @@ export const Dashboard : FC = () => {
                 <ReadyDashboard
                 title="В работе"
                 haveInput={true}
+                addTodo={addTodo}
+                isComplete={false}
+                todos={currentProject.todos}
                 />
                 <FinelyDashboard
                 title="Готово"
                 haveInput={false}
+                addTodo={addTodo}
+                isComplete={true}
+                todos={currentProject.todos}
                 />
             </div>
         </div>

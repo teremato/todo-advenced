@@ -19,9 +19,17 @@ const projectSlice = createSlice({
         },
         addProject(state, action) {
             state.projects.push(action.payload)
+        },
+        addProjectTodo(state, action) {
+            state.projects = state.projects.map((project) => {
+                if(project.id === action.payload.projectId) {
+                    return {...project, todos: [...project.todos, action.payload.project]}
+                }
+                return project
+            })
         }
     }
 })
 
-export const { getAllProjects, addProject } = projectSlice.actions
+export const { getAllProjects, addProject, addProjectTodo } = projectSlice.actions
 export default projectSlice.reducer

@@ -35,7 +35,7 @@ export const ProjectItem : FC<ProjectItemProp> = ({project}) => {
                     <ToggleListIcon className={styles.item_icon}/>
                 </div>
                 <div className={styles.item_field}>
-                    <div>14.02</div>
+                    <div>{project.lastUpdate}</div>
                     <DateListIcon className={styles.item_icon}/>
                 </div>
             </div>

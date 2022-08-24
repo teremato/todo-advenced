@@ -4,6 +4,7 @@ import { ModalWindow } from "../../components/ui/modal/modal";
 import { UIPageTitle } from "../../components/ui/page-title/page-tile";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { setProject } from "../../services/project/project-services";
+import { Project } from "../../shared/creaters/project-creater";
 import { IProject } from "../../shared/interfaces/project.interfase";
 import { addProject } from "../../store/projects/projectsSlice";
 import { ProjectItemModal } from "./projects-item-modal/projects-item-modal";
@@ -22,17 +23,8 @@ export const Projects : FC = () => {
 
     const createProject = (title: string, description: string) => {
         if(title && description !== '') {
-
-            let newProject : IProject = {
-                id: Date.now().toString().slice(7, 12),
-                name: title,
-                description: description,
-                todos: [],
-                lastUpdate: Date.now().toString()
-            }
-
-            setProject(userID, projects, newProject).then(() => {
-                dispatch(addProject(newProject))
+            setProject(userID, projects, Project(title, description)).then(() => {
+                dispatch(addProject(Project(title, description)))
             })
             setIsOpen(false)
         }
