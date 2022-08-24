@@ -6,9 +6,9 @@ import { useAppDispatch, useAppSelector } from "../../hooks";
 import { UIPageTitle } from "../../components/ui/page-title/page-tile";
 import { IProject } from "../../shared/interfaces/project.interfase";
 import styles from './dashboard.module.scss'
-import { addTodoToProject } from "../../services/project/project-services";
+import { addTodoToProject, removeTodoToProject, toggleTodoToProject } from "../../services/project/project-services";
 import { IProjectTodo } from "../../shared/interfaces/project-todo.interface";
-import { addProjectTodo } from "../../store/projects/projectsSlice";
+import { addProjectTodo, removeProjectTodo, toggleProjectTodo } from "../../store/projects/projectsSlice";
 
 
 export const Dashboard : FC = () => {
@@ -36,6 +36,22 @@ export const Dashboard : FC = () => {
         })))
     }
 
+    const toggleTodo = (todoID: string) => {
+        toggleTodoToProject(userId, currentProject.id, projects, todoID)
+        .then(() => dispatch(toggleProjectTodo({
+            projectID: currentProject.id,
+            todoID: todoID
+        })))
+    }
+
+    const removeTodo = (todoID: string) => {
+        removeTodoToProject(userId, currentProject.id, projects, todoID)
+        .then(() => dispatch(removeProjectTodo({
+            projectID: currentProject.id,
+            todoID: todoID
+        })))
+    }
+
     return (
         <div className={styles.dashboard_page}>
             <div className={styles.dashboard_page_header}>
@@ -49,6 +65,8 @@ export const Dashboard : FC = () => {
                 addTodo={addTodo}
                 isComplete={false}
                 todos={currentProject.todos}
+                toggleTodo={toggleTodo}
+                removeTodo={removeTodo}
                 />
                 <FinelyDashboard
                 title="Готово"
@@ -56,6 +74,8 @@ export const Dashboard : FC = () => {
                 addTodo={addTodo}
                 isComplete={true}
                 todos={currentProject.todos}
+                toggleTodo={toggleTodo}
+                removeTodo={removeTodo}
                 />
             </div>
         </div>

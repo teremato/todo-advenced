@@ -9,12 +9,14 @@ import styles from './dash-form.module.scss'
 interface DashboardFormProp {
     title: string,
     haveInput: boolean,
-    addTodo: (projectTodo: IProjectTodo) => void,
     isComplete : boolean,
-    todos: Array<IProjectTodo>
+    todos: Array<IProjectTodo>,
+    addTodo: (projectTodo: IProjectTodo) => void,
+    toggleTodo: (todoID: string) => void,
+    removeTodo: (todoID: string) => void
 }
 
-export const DashboardForm : FC<DashboardFormProp> = ({title, haveInput, addTodo, isComplete, todos}) => {
+export const DashboardForm : FC<DashboardFormProp> = ({title, haveInput, addTodo, isComplete, todos, removeTodo, toggleTodo}) => {
 
     const [isAddForm, setIsAddForm] = useState(false)
     const [userInput, setUserInput] = useState<string>('')
@@ -44,7 +46,12 @@ export const DashboardForm : FC<DashboardFormProp> = ({title, haveInput, addTodo
                     (todos) ? 
                     todos.map((todo) => {
                         if (todo.complete === isComplete) {
-                            return <DashItem todo={todo}/>
+                            return <DashItem
+                            key={todo.id}
+                            todo={todo}
+                            toggleTodo={toggleTodo}
+                            removeTodo={removeTodo}
+                            />
                         }
                         return ''
                     }) : ''
