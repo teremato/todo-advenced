@@ -1,20 +1,12 @@
-import { FC } from "react";
-import { useAuth } from "../../hooks";
-import { Authorization } from "../../screens";
+import { FC } from 'react';
+import { useAuth } from '../../hooks';
 
 interface AuthProviderProp {
-    children: any
+  children: React.ReactNode; // опять any был
 }
 
-export const AuthProvider : FC<AuthProviderProp> = ({children}) => {
-    
-    const { isAuth } = useAuth()
+export const AuthProvider: FC<AuthProviderProp> = ({ children }) => {
+  const { isAuth } = useAuth();
 
-    return (
-        <div>
-            {
-                (!isAuth) ? children : ''
-            }
-        </div>
-    )
-}
+  return <div>{!isAuth ? children : ''}</div>;
+};
