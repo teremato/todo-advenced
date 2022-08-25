@@ -40,7 +40,8 @@
             }
         }
         & .header_search {
-            display: flex;
+            display: none;
+            // display: flex;
             align-items: center;
 
             @media (max-width: 450px) {
