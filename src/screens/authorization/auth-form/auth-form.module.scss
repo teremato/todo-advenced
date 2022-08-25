@@ -3,13 +3,14 @@
     flex-direction: column;
     justify-content: space-around;
 
-    width: 50%;
+    width: 60%;
     height: max-content;
 
     border-radius: 15px;
     padding: 15px;
-    color: rgb(143, 132, 132);
-    background-color: white;
+    // color: rgb(143, 132, 132);
+    color: inherit;
+    background-color: inherit;
 
     @media (max-width: 500px) {
         width: 90%;
@@ -21,7 +22,6 @@
             size: 25px ;
             weight: 500
         }
-        color: black;
     }
     & .input_form {
         display: flex;
@@ -35,6 +35,8 @@
             font-size: 18px;
             padding: 6px;
             outline: none;
+            background: none;
+            color: inherit;
         }
         & .input_load_files {
             display: none;
@@ -75,4 +77,11 @@
 }
 .error {
     color: gray;
+    margin-bottom: 10px;
+}
+.active {
+    color: inherit;
+}
+.default {
+    color: black;
 }

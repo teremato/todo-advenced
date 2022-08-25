@@ -29,11 +29,13 @@ export const Dashboard : FC = () => {
     }, [id, projects])
 
     const addTodo = (project: IProjectTodo) => {
-        addTodoToProject(userId, currentProject.id, projects, project)
-        .then(() => dispatch(addProjectTodo({
-            projectId: currentProject.id, 
-            project: project
-        })))
+        if(project.body !== '') {
+            addTodoToProject(userId, currentProject.id, projects, project)
+            .then(() => dispatch(addProjectTodo({
+                projectId: currentProject.id, 
+                project: project
+            })))
+        }
     }
 
     const toggleTodo = (todoID: string) => {

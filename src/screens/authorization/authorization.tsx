@@ -31,6 +31,12 @@ export const Authorization : FC = () => {
             }).then(() => {
                 setIsLoader(false)
                 navigate(RoutesMap.HOME)
+            }).catch(() => {
+                setIsLoader(false)
+                setIsValid(true)
+                setTimeout(() => {
+                    setIsValid(false)
+                }, 2000)
             })
         }else {
             setIsValid(true)
@@ -50,6 +56,12 @@ export const Authorization : FC = () => {
                 }).then(() => {
                     setIsLoader(false)
                     navigate(RoutesMap.HOME)
+                }).catch(() => {
+                    setIsLoader(false)
+                    setIsValid(true)
+                    setTimeout(() => {
+                        setIsValid(false)
+                    }, 2000)
                 })
             })
         }else {

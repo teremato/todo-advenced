@@ -11,6 +11,10 @@
     border-radius: 10px;
     transition: all .2s;
 
+    @media (max-width: 500px) {
+        margin: 5px;
+    }
+
     & .dash_form_title {
         width: 94%;
         margin: 5px 0px;

@@ -17,9 +17,8 @@ export const Aside : FC = () => {
     return (
         <aside className={
             (isDark) ? `${styles.aside} ${styles.active}` : styles.aside
-        }style={{
-            pointerEvents: (!auth.isAuth) ? `all` : `none`
-        }}>
+        }
+        style={ { pointerEvents: (!auth.isAuth) ? `all` : `none` } }>
             <nav className={styles.nav}>
                 <ul>
                     <li>
@@ -31,30 +30,33 @@ export const Aside : FC = () => {
                         <NavLink to={RoutesMap.PROJECTS}>Проекты</NavLink>
                     </li>
                 </ul>
-                <ul>
-                    <li onClick={() => dispatch(changeTheme())}>
-                        {
-                            (isDark) ? <Icon.DarkThemeIcon className={styles.nav_icon}/> : 
-                            <Icon.LightThemeIcon className={styles.nav_icon}/>
-                        }
-                        <div>
-                            {(isDark) ? 'Темная тема' : 'Светлая тема'}
-                        </div>
-                    </li>
-                    <li>
-                        <Icon.SettingsIcon className={styles.nav_icon}/>
-                        <NavLink to={RoutesMap.SETTINGS}>Настройки</NavLink>
-                    </li>
-                    <li onClick={() =>  {
-                        dispatch(removeUser());
-                        navigate(RoutesMap.AUTHORIZATION)
-                    }}>
-                        <Icon.LogOutIcon
-                        className={styles.nav_icon}
-                        />
-                        <div>Выйти</div>
-                    </li>
-                </ul>
+                {
+                    (!auth.isAuth) ?
+                    <ul>
+                        <li onClick={() => dispatch(changeTheme())}>
+                            {
+                                (isDark) ? <Icon.DarkThemeIcon className={styles.nav_icon}/> : 
+                                <Icon.LightThemeIcon className={styles.nav_icon}/>
+                            }
+                            <div>
+                                {(isDark) ? 'Темная тема' : 'Светлая тема'}
+                            </div>
+                        </li>
+                        <li>
+                            <Icon.SettingsIcon className={styles.nav_icon}/>
+                            <NavLink to={RoutesMap.SETTINGS}>Настройки</NavLink>
+                        </li>
+                        <li onClick={() =>  {
+                            dispatch(removeUser());
+                            navigate(RoutesMap.AUTHORIZATION)
+                        }}>
+                            <Icon.LogOutIcon
+                            className={styles.nav_icon}
+                            />
+                            <div>Выйти</div>
+                        </li>
+                    </ul> : ''
+                }
             </nav>
         </aside>
     )

@@ -1,10 +1,10 @@
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector, useAuth } from "../../../hooks";
-import { AuthProvider } from "../../../providers";
 import { RoutesMap } from "../../../utils/constans/routes.constans";
 import { getShortName } from "../../../utils/helpers/shortName.helpers";
 import { LoginIcon, SearchIcon } from "../../ui/icons/icons";
+import { HeaderLogo } from "./header-logo/header-logo";
 import styles from './header.module.scss'
 
 export const Header : FC = () => {
@@ -20,7 +20,7 @@ export const Header : FC = () => {
             ((isDark) ? `${styles.header} ${styles.active}` : `${styles.header}`)
         }>
             <div className={styles.header_content}>
-                <div className={styles.header_logo}>Todo <span>Advanced</span></div>
+                <HeaderLogo/>
                 <div className={styles.header_search}>
                     <SearchIcon className={styles.header_search_icon}/>
                     <input type="text" placeholder="Поиск..."/>

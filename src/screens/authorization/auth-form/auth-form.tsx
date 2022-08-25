@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import { useAppSelector } from "../../../hooks";
 import styles from './auth-form.module.scss'
 
 interface AuthFormProp {
@@ -13,6 +14,7 @@ interface AuthFormProp {
 export const AuthForm : FC<AuthFormProp> = ({title, subTitle, changeForm, handleAuth, isLogin, isValid}) => {
 
 
+    const {isDark} = useAppSelector((state) => state.theme)
     const [userInput, setUserInput] = useState({
         password: '',
         email: '',
@@ -21,7 +23,8 @@ export const AuthForm : FC<AuthFormProp> = ({title, subTitle, changeForm, handle
 
     return (
         <div className={styles.form}>
-            <div className={styles.title}>{title}</div>
+            <div className={(isDark) ? `${styles.title} ${styles.active}`
+             : `${styles.title} ${styles.default}`}>{title}</div>
             {
                 (!isLogin) ?
                 <div className={styles.input_form}>

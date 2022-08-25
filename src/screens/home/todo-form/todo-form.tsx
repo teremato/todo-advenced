@@ -2,11 +2,11 @@ import { FC, useState, useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../../hooks"
 import { getTodo, setRemoveTodo, setTodo, setToggleTodo } from "../../../services/todo/todo-services"
 import { addTodo, getTodos, toggleTodo, removeTodo } from "../../../store/todos/todosSlice"
-import { ITodo } from "../../../shared/interfaces/todo.interfase"
 import { ModalWindow } from "../../../components/ui/modal/modal"
 import { TodoItemModal } from "./todo-item-modal/todo-item-modal"
 import { TodoItem } from "./todo-item/todo-item"
 import styles from './todo-form.module.scss'
+import { Todo } from "../../../shared/creaters/todo-creater"
 
 
 export const TodoForm : FC = () => {
@@ -25,11 +25,13 @@ export const TodoForm : FC = () => {
         })
     }, [dispatch, userId])
 
-    const handleTodoAdd = (todo : ITodo) => {
-        setTodo(userId, todos, todo).then(() => {
-            dispatch(addTodo(todo))
-        })
-        setIsOpen(false)
+    const handleTodoAdd = (title: string, body: string) => {
+        if (title && body !== '') {
+            setTodo(userId, todos, Todo(title, body)).then(() => {
+                dispatch(addTodo(Todo(title, body)))
+            })
+            setIsOpen(false)
+        }
     }
 
     const handleToggle = (id: string | number)=> {

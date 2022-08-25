@@ -22,3 +22,5 @@ export {TbExternalLink as NavLinkIcon} from 'react-icons/tb'
 
 export {AiFillFileAdd as AddProjectIcon} from 'react-icons/ai'
 export {CgClose as ClosedFormIcon} from 'react-icons/cg'
+
+export {HiMenu as BurgerMenuIcon} from 'react-icons/hi'
