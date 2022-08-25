@@ -1,13 +1,15 @@
 //Валидация почты
-export const isEmailValid = ( email: string ) : boolean => {
-    if(email === '') { return false } 
-    else {
-        let arr : Array<string> = Array.from(email.toLowerCase())
-        return arr.includes('@')
-    }
-}
+// Можно с регекспами поиграться...
+export const isEmailValid = (email: string): boolean => {
+  if (email) {
+    const arr: Array<string> = Array.from(email.toLowerCase());
+    return arr.includes('@');
+  }
+  return !!email;
+};
+
 //Валидация пароля
-export const isPasswordValid = ( password: string ) : boolean => {
-    if(password === '') { return false }
-    else { return (password.length > 6) ? true : false }
-}
+// Такая же история с регекспами
+export const isPasswordValid = (password: string): boolean => {
+  return password.length > 6;
+};
